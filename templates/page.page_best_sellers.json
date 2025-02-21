@@ -13,12 +13,12 @@
       "type": "best-sellers",
       "settings": {
         "title": "Our Best Sellers 2",
-        "product_limit": 7,
+        "product_limit": 8,
         "show_price": true,
         "show_image": true,
         "show_rating": false,
         "show_add_to_cart": true,
-        "layout": "grid",
+        "layout": "list",
         "collection": "restaurant-food-service"
       }
     },
@@ -27,7 +27,7 @@
       "settings": {
         "title": "Cart Summary",
         "show_shipping_info": true,
-        "background_color": "#e53232"
+        "background_color": "#fed700"
       }
     }
   },
