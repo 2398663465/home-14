@@ -1,7 +1,7 @@
 <div>SELECT_GOODS: {{ section.settings | json }}</div>
 
 <div class="products-container {% if section.settings.layout == 'grid' %}grid-layout{% else %}list-layout{% endif %}">
-  {{ section.products | json }}
+  {{ section.settings.products | json }}
 </div>
 
 <!-- Schema 定义 -->
