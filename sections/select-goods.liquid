@@ -1,9 +1,14 @@
-<div>SELECT_GOODS: {{ section.settings | json }}</div>
+<div>SELECT_GOODS: {{ section.settings.prodcuts | json }}</div>
 
 <div class="products-container {% if section.settings.layout == 'grid' %}grid-layout{% else %}list-layout{% endif %}">
-  {{ section.products | json }}
+  {% assign products = section.settings.products | default: section.settings.products %}
+  {% for product in products limit: section.settings.product_limit %}
+    <div class="product-item">
+      {% if section.settings.show_image %}
+      {% endif %}
+    </div>
+  {% endfor %}
 </div>
-
 <!-- Schema 定义 -->
 {% schema %}
 {
@@ -64,8 +69,7 @@
   ],
   "presets": [
     {
-      "name": "选择全部商品 Select Goods",
-      "category": "商品"
+      "name": "选择全部商品 Select Goods"
     }
   ]
 }
