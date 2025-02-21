@@ -1,10 +1,14 @@
-<div>SELECT_GOODS: {{ section.settings.selected_products | json }}</div>
+<div>SELECT_GOODS: {{ section.settings | json }}</div>
 
 <div class="products-container {% if section.settings.layout == 'grid' %}grid-layout{% else %}list-layout{% endif %}">
-  {% assign products = section.settings.products | default: section.settings.products %}
+  {% assign products = section.settings.selected_products | default: section.settings.selected_products %}
   {% for product in products limit: section.settings.product_limit %}
     <div class="product-item">
       {% if section.settings.show_image %}
+         <h3 class="product-title">
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </h3>
+
       {% endif %}
     </div>
   {% endfor %}
