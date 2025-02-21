@@ -12,14 +12,14 @@
     "best_sellers": {
       "type": "best-sellers",
       "settings": {
-        "title": "Our Best Sellers",
+        "title": "Our Best Sellers 2",
         "product_limit": 7,
         "show_price": true,
         "show_image": true,
         "show_rating": false,
         "show_add_to_cart": true,
         "layout": "grid",
-        "collection": "3dwall-panels"
+        "collection": "alcohol-distiller"
       }
     },
     "cart-total": {
