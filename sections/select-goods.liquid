@@ -4,18 +4,19 @@
   {% assign products = section.settings.selected_products | default: section.settings.selected_products %}
   {% for product in products limit: section.settings.product_limit %}
     <div class="product-item">
-      {% if section.settings.show_image %}
-         <h3 class="product-title">
-        <a href="{{ product.url }}">{{ product.title }}</a>
-      </h3>
-
-      {% endif %}
+      
       {% if section.settings.show_image %}
         <a href="{{ product.url }}" class="product-image">
           <!-- 图片懒加载 -->
          <img data-src="{{ product.featured_image | img_url:'medium' }}"  alt="{{ product.title | escape }}" class="lazyload">
 
         </a>
+      {% endif %}
+      {% if section.settings.show_image %}
+         <h3 class="product-title">
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </h3>
+
       {% endif %}
     </div>
   {% endfor %}
