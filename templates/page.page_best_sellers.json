@@ -9,6 +9,7 @@
  */
  {
   "sections": {
+<<<<<<< HEAD
       "best_sellers": {
           "type": "best-sellers",
           "settings": {
@@ -44,6 +45,29 @@
               "collection": "all"
           }
       }
+=======
+    "best_sellers": {
+      "type": "best-sellers",
+      "settings": {
+        "title": "Our Best Sellers 2",
+        "product_limit": 8,
+        "show_price": true,
+        "show_image": true,
+        "show_rating": false,
+        "show_add_to_cart": true,
+        "layout": "list",
+        "collection": "restaurant-food-service"
+      }
+    },
+    "cart-total": {
+      "type": "cart-total",
+      "settings": {
+        "title": "Cart Summary",
+        "show_shipping_info": true,
+        "background_color": "#fed700"
+      }
+    }
+>>>>>>> cc4234bff3d686631a40bad8afba8703ed90772b
   },
   "order": [
       "best_sellers",
