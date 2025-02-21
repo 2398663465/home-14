@@ -1,13 +1,13 @@
 <div>SELECT_GOODS: {{ section.settings | json }}</div>
 
 <div class="products-container {% if section.settings.layout == 'grid' %}grid-layout{% else %}list-layout{% endif %}">
-        {{section.products | json }}
+  {{ section.products | json }}
 </div>
 
 <!-- Schema 定义 -->
 {% schema %}
 {
-    "name": "选择全部商品select goods",
+  "name": "选择全部商品select goods",
   "settings": [
     {
       "type": "text",
@@ -54,30 +54,41 @@
         { "value": "list", "label": "列表" }
       ],
       "default": "grid"
+    },
+    {
+      "type": "product_list",
+      "id": "selected_products",
+      "label": "选择商品",
+      "limit": 6
     }
-  ]      
-}   
+  ],
+  "presets": [
+    {
+      "name": "选择全部商品 Select Goods",
+      "category": "商品"
+    }
+  ]
+}
 {% endschema %}
 
 <style>
-    .products-container.grid-layout {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
-    .products-container.list-layout {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .product-item {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-    .product-image img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
-  
+  .products-container.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .products-container.list-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .product-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  .product-image img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
