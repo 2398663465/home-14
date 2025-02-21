@@ -7,47 +7,53 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
-      "best_sellers": {
-          "type": "best-sellers",
-          "settings": {
-              "title": "Our Best Sellers 2",
-              "product_limit": 5,
-              "show_price": true,
-              "show_image": true,
-              "show_rating": false,
-              "show_add_to_cart": true,
-              "layout": "grid",
-              "collection": "restaurant-food-service"
-          }
-      },
-      "cart-total": {
-          "type": "cart-total",
-          "settings": {
-              "title": "Cart Summary",
-              "show_shipping_info": true,
-              "background_color": "#FED700"
-          }
-      },
-      "select-goods": {
-          "type": "select-goods",
-          "settings": {
-              "title": "Select Goods Title",
-              "show_image": true,
-              "show_price": true,
-              "show_rating": true,
-              "show_add_to_cart": true,
-              "show_wishlist": true,
-              "show_compare": true,
-              "product_limit": 6,
-              "collection": "all"
-          }
+    "best_sellers": {
+      "type": "best-sellers",
+      "settings": {
+        "title": "Our Best Sellers 2",
+        "product_limit": 5,
+        "show_price": true,
+        "show_image": true,
+        "show_rating": false,
+        "show_add_to_cart": true,
+        "layout": "grid",
+        "collection": "restaurant-food-service"
       }
+    },
+    "cart-total": {
+      "type": "cart-total",
+      "settings": {
+        "title": "Cart Summary",
+        "show_shipping_info": true,
+        "background_color": "#fed700"
+      }
+    },
+    "select-goods": {
+      "type": "select-goods",
+      "settings": {
+        "title": "Select Goods Title",
+        "product_limit": 6,
+        "show_price": true,
+        "show_image": true,
+        "show_rating": true,
+        "show_add_to_cart": true,
+        "layout": "grid",
+        "selected_products": [
+          "aluminium-pulley-weight-stack-bundle",
+          "10ft-50-amp-generator-extension-cord-stw-6-3-8-1-generator-cord-125v-250v-generator-power-cord-n14-50p-ss2-50r-cs6364-twist-lock-connectors",
+          "pallet-forks-4000-lbs-clamp-on-pallet-forks-60-total-length-heavy-duty-pallet-forks-with-adjustable-stabilizer-bar-tractor-bucket-forks-for-tractor-attachments-skid-steer-loader-bucket",
+          "welding-extension-cord-50ft-mig-tig-plasma-welding-cord-30a-extension-cord-for-portable-welders",
+          "0-5-12-inch-roller-pipe-stand-adjustable-height-32-55-pipe-2500lb-capacity-jack-stands-folding-portable-high-folding-pipe-stand-with-roller-head-fold-a-trailer-jacks",
+          "0-75-hp-pool-pump-motor-56j-frame-115v8-amps-230v4-amps-3450-rpm-60hz-1-5-service-factor-80-if-250v-capacitor-ccw-rotation-round-flange-replacement-motor"
+        ]
+      }
+    }
   },
   "order": [
-      "best_sellers",
-      "cart-total",
-      "select-goods"
+    "best_sellers",
+    "cart-total",
+    "select-goods"
   ]
 }
