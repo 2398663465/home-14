@@ -1,4 +1,4 @@
-<div>SELECT_GOODS: {{ section.settings | json }}</div>
+<div>SELECT_GOODS: {{ section.settings.title }}</div>
 
 <div class="products-container {% if section.settings.layout == 'grid' %}grid-layout{% else %}list-layout{% endif %}">
   {% assign products = section.settings.selected_products | default: section.settings.selected_products %}
