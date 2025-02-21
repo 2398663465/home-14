@@ -11,11 +11,24 @@
   "sections": {
     "best_sellers": {
       "type": "best-sellers",
-      "settings": {}
+      "settings": {
+        "title": "Our Best Sellers", //标题
+        "product_limit": 6, //显示商品的数量
+        "show_price": true, //是否显示价格
+        "show_image": true, //是否显示图片
+        "show_rating": true, //是否显示评分
+        "show_add_to_cart": true, //是否显示加入购物车按钮
+        "layout": "grid", //布局方式，grid表示网格，list表示列表
+        "collection": "best-sellers", //选择展示的商品集
+      }
     },
     "cart-total": {
       "type": "cart-total",
-      "settings": {}
+      "settings": {
+        "title": "Cart Summary", // 标题
+        "show_shipping_info": true, // 是否显示运费信息
+        "background_color": "#f5f5f5" // 背景颜色
+      }
     }
   },
   "order": [

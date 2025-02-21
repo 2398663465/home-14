@@ -1,3 +1,158 @@
 <div>
-    best-sellers 商品八块
+    自己定义的html样式
 </div>
+<!-- 标题 -->
+{% if settings.title != blank %}
+    <h2>{{ settings.title }}</h2>
+  {% endif %}
+  
+  <!-- 商品展示区域 -->
+  <div class="products-container {% if settings.layout == 'grid' %}grid-layout{% else %}list-layout{% endif %}">
+    {% assign collection = collections[settings.collection] %}
+    {% for product in collection.products limit: settings.product_limit %}
+      <div class="product-item">
+        <!-- 商品图片 -->
+        {% comment %} {% if settings.show_image and product.featured_image %}
+          <a href="{{ product.url }}" class="product-image">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title | escape }}">
+          </a>
+        {% endif %} {% endcomment %}
+        {% if settings.show_image and product.featured_image %}
+            <a href="{{ product.url }}" class="product-image">
+              <img src="{{ product.featured_image | image_url: 'medium' }}" 
+                   alt="{{ product.title | escape }}"
+                   width="{{ product.featured_image.width }}"
+                   height="{{ product.featured_image.height }}">
+            </a>
+          {% endif %}
+          
+  
+        <!-- 商品标题 -->
+        <h3 class="product-title">
+          <a href="{{ product.url }}">{{ product.title }}</a>
+        </h3>
+  
+        <!-- 价格 -->
+        {% if settings.show_price %}
+          <p class="product-price">
+            {{ product.price | money }}
+            {% if product.compare_at_price > product.price %}
+              <span class="compare-price">{{ product.compare_at_price | money }}</span>
+            {% endif %}
+          </p>
+        {% endif %}
+  
+        <!-- 评分 -->
+        {% if settings.show_rating %}
+          <div class="product-rating">
+            {% if product.metafields.reviews.rating %}
+              {{ product.metafields.reviews.rating }} / 5
+            {% else %}
+              未评分
+            {% endif %}
+          </div>
+        {% endif %}
+  
+        <!-- 加入购物车按钮 -->
+        {% if settings.show_add_to_cart %}
+          <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+            <button type="submit" class="add-to-cart-btn">加入购物车</button>
+          </form>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  
+  <!-- 如果集合中没有商品 -->
+  {% if collection.products.size == 0 %}
+    <p>此商品集暂无商品。</p>
+  {% endif %}
+  
+  <!-- Schema 定义 -->
+  {% schema %}
+  {
+    "name": "畅销商品",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "标题",
+        "default": "Our Best Sellers"
+      },
+      {
+        "type": "number",
+        "id": "product_limit",
+        "label": "显示商品数量",
+        "default": 6
+      },
+      {
+        "type": "checkbox",
+        "id": "show_price",
+        "label": "显示价格",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_image",
+        "label": "显示图片",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_rating",
+        "label": "显示评分",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_add_to_cart",
+        "label": "显示加入购物车按钮",
+        "default": true
+      },
+      {
+        "type": "radio",
+        "id": "layout",
+        "label": "布局方式",
+        "options": [
+          { "value": "grid", "label": "网格" },
+          { "value": "list", "label": "列表" }
+        ],
+        "default": "grid"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "选择商品集"
+      }
+    ],
+    "presets": [
+      {
+        "name": "畅销商品",
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <!-- 简单的 CSS 样式 -->
+  <style>
+    .products-container.grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .products-container.list-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .product-item {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>

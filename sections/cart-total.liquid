@@ -1,3 +1,65 @@
 <div>
     购物车列表模块cart-total
 </div>
+<!-- 购物车摘要区域 -->
+<div class="cart-summary" style="background-color: {{ settings.background_color | escape }};">
+    <!-- 标题 -->
+    {% if settings.title != blank %}
+      <h2>{{ settings.title | escape }}</h2>
+    {% endif %}
+  
+    <!-- 购物车内容（示例） -->
+    <p>这里是购物车摘要的示例内容，你可以替换为实际的购物车逻辑。</p>
+  
+    <!-- 运费信息 -->
+    {% if settings.show_shipping_info %}
+      <div class="shipping-info">
+        <p>运费将在结账时计算。</p>
+      </div>
+    {% endif %}
+  </div>
+  
+  <!-- Schema 定义 -->
+  {% schema %}
+  {
+    "name": "购物车摘要",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "标题",
+        "default": "Cart Summary"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_shipping_info",
+        "label": "显示运费信息",
+        "default": true
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "背景颜色",
+        "default": "#f5f5f5"
+      }
+    ],
+    "presets": [
+      {
+        "name": "购物车摘要",
+      }
+    ]
+  }
+  {% endschema %}
+  
+  <!-- 简单的 CSS 样式 -->
+  <style>
+    .cart-summary {
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .shipping-info {
+      margin-top: 10px;
+      font-style: italic;
+      color: #666;
+    }
+  </style>
