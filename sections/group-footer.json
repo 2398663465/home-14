@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer_widget_UaMCqF": {
+      "type": "footer-widget",
+      "blocks": {
+        "menu_3GWReU": {
+          "type": "menu",
+          "settings": {
+            "title": "Get to Know Us",
+            "hide_heading_desktop": false,
+            "menu": "get-to-know-us"
+          }
+        },
+        "menu_WDzRXB": {
+          "type": "menu",
+          "settings": {
+            "title": "Customer Service",
+            "hide_heading_desktop": false,
+            "menu": "customer-service"
+          }
+        },
+        "menu_xKJM8Q": {
+          "type": "menu",
+          "settings": {
+            "title": "Buying Guide",
+            "hide_heading_desktop": false,
+            "menu": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_3GWReU",
+        "menu_WDzRXB",
+        "menu_xKJM8Q"
+      ],
+      "settings": {
+        "layout": "boxed",
+        "margin": "",
+        "padding": "60px 0px 55px 0px",
+        "border_top": true,
+        "bg_color": "#ffffff",
+        "text_color": "#333e48",
+        "text_1_color": "#333e48",
+        "text_2_color": "#df3737"
+      }
+    },
+    "footer_rqcyUV": {
+      "type": "footer",
+      "settings": {
+        "layout": "boxed",
+        "margin": "",
+        "padding": "12px 0 12px 0",
+        "bg_color": "#ffffff",
+        "copyright_color": "#333e48",
+        "payment_enable": true
+      }
+    }
+  },
+  "order": [
+    "footer_widget_UaMCqF",
+    "footer_rqcyUV"
+  ]
+}

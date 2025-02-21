@@ -1,0 +1,915 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1649833316bdb84cae": {
+      "type": "section-slideshow",
+      "blocks": {
+        "a8c70fc3-c22a-48e4-9014-4a811e7711b8": {
+          "type": "block-item",
+          "settings": {
+            "image": "shopify://shop_images/C1A82547A372B3CBE8D5FA84E33784A3.webp",
+            "image_mobile": "shopify://shop_images/C1A82547A372B3CBE8D5FA84E33784A3.webp",
+            "hide_textbox_mobile": true,
+            "heading": "",
+            "subtext": "",
+            "subtext_2": "",
+            "button_label": "",
+            "link": "shopify://collections/ice-machines"
+          }
+        },
+        "block_item_HEiGxf": {
+          "type": "block-item",
+          "settings": {
+            "image": "shopify://shop_images/144E75E896A8CB24B45547F7732CA4AE.jpg",
+            "image_mobile": "shopify://shop_images/144E75E896A8CB24B45547F7732CA4AE.jpg",
+            "hide_textbox_mobile": false,
+            "heading": "",
+            "subtext": "",
+            "subtext_2": "",
+            "button_label": "",
+            "link": "shopify://collections/electric-wire-rope-hoist"
+          }
+        },
+        "block_item_DTmYdM": {
+          "type": "block-item",
+          "settings": {
+            "image": "shopify://shop_images/banner-3.webp",
+            "image_mobile": "shopify://shop_images/banner-3.webp",
+            "hide_textbox_mobile": false,
+            "heading": "",
+            "subtext": "",
+            "subtext_2": "",
+            "button_label": "",
+            "link": "shopify://collections/lawn-garden"
+          }
+        },
+        "block_item_JTzU4d": {
+          "type": "block-item",
+          "settings": {
+            "image": "shopify://shop_images/A8D99E4C7632C61025AFD36DEF672733_df2653cf-e621-4859-84cf-a9ff66526446.webp",
+            "image_mobile": "shopify://shop_images/A8D99E4C7632C61025AFD36DEF672733_df2653cf-e621-4859-84cf-a9ff66526446.webp",
+            "hide_textbox_mobile": false,
+            "heading": "",
+            "subtext": "",
+            "subtext_2": "",
+            "button_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "a8c70fc3-c22a-48e4-9014-4a811e7711b8",
+        "block_item_HEiGxf",
+        "block_item_DTmYdM",
+        "block_item_JTzU4d"
+      ],
+      "settings": {
+        "layout": "full",
+        "right_sidebar": "none",
+        "bg_color": "#fafafa",
+        "margin": "",
+        "padding": "",
+        "slideshow_height": "auto-height",
+        "manually_height": 470,
+        "disable_lazyload": true,
+        "push_layout_right": false,
+        "loop": false,
+        "controls": true,
+        "dots": true,
+        "dots_position": 4,
+        "autoplay": false,
+        "autoplay_timeout": 4,
+        "three_banner_style": "1",
+        "three_image_bg_color": "#ffffff",
+        "three_image_1": "shopify://shop_images/C1A82547A372B3CBE8D5FA84E33784A3.webp",
+        "three_text_1": "",
+        "three_button_1": "Shop now",
+        "three_link_1": "",
+        "three_text_2": "",
+        "three_button_2": "Shop now",
+        "three_link_2": "",
+        "three_text_3": "",
+        "three_button_3": "Shop now",
+        "three_link_3": "",
+        "product_1": "",
+        "product_2": "",
+        "product_3": ""
+      }
+    },
+    "164983532526a9abea": {
+      "type": "section-image-gallery",
+      "blocks": {
+        "16498353253bc59926-0": {
+          "type": "block-item",
+          "settings": {
+            "image": "shopify://shop_images/C06D717CA50712C935F0CD3ACF9DA612.jpg",
+            "heading": "Restaurant & Food Service",
+            "subtext": "",
+            "link": "shopify://collections/restaurant-food-service"
+          }
+        },
+        "16498353253bc59926-1": {
+          "type": "block-item",
+          "settings": {
+            "image": "shopify://shop_images/DD79F694EE73A023B050BA59D75FDE63.jpg",
+            "heading": "Lawn & Garden",
+            "subtext": "",
+            "link": "shopify://collections/lawn-garden"
+          }
+        },
+        "16498353253bc59926-2": {
+          "type": "block-item",
+          "settings": {
+            "image": "shopify://shop_images/20ACA62C42B3A53D4D419D88B8F6201A.jpg",
+            "heading": "Power Tools",
+            "subtext": "",
+            "link": "shopify://collections/power-tools"
+          }
+        },
+        "block_item_xKnUMc": {
+          "type": "block-item",
+          "settings": {
+            "image": "shopify://shop_images/A031A61E42257F10ECBF1D9665F78BD8.jpg",
+            "heading": "Automotive",
+            "subtext": "",
+            "link": "shopify://collections/automotive"
+          }
+        },
+        "block_item_tBg86J": {
+          "type": "block-item",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/BB98807F52BA2EDE5C1BF227D7DD50FA.webp",
+            "heading": "Material Handling",
+            "subtext": "",
+            "link": "shopify://collections/material-handling"
+          }
+        }
+      },
+      "block_order": [
+        "16498353253bc59926-0",
+        "16498353253bc59926-1",
+        "16498353253bc59926-2",
+        "block_item_xKnUMc",
+        "block_item_tBg86J"
+      ],
+      "custom_css": [
+        ".image-gallery_title {font-size: 18px; font-weight: bold;}"
+      ],
+      "settings": {
+        "layout": "boxed",
+        "border_top": "border-top-none",
+        "round_image": false,
+        "margin": "30px 0 0 0, 30px 0 0 0, 30px 0 0 0, 30px 0 0 0, 30px 0 0 0",
+        "padding": "",
+        "bg_color": "",
+        "items_resp": "4,3,2",
+        "items_spacing": true,
+        "enable_slider": false,
+        "loop": false,
+        "controls": false,
+        "dots": true,
+        "autoplay": false,
+        "autoplay_timeout": 4
+      }
+    },
+    "featured_collection_v3_9Wn4jz": {
+      "type": "featured-collection-v3",
+      "disabled": true,
+      "settings": {
+        "layout": "boxed",
+        "bg_color": "",
+        "margin": "",
+        "padding": "",
+        "heading": "<p>New</p><h3>MOOVA Series - Electric scooters</h3><p><strong>The pocket rocket, our longest distance scooters</strong></p>",
+        "collection": "accessories",
+        "items_resp": "3,2",
+        "items_spacing": true,
+        "limit": 6,
+        "loop": false,
+        "controls": true,
+        "dots": false,
+        "autoplay": false,
+        "autoplay_timeout": 4
+      }
+    },
+    "product_tabs_v1_wr4c7L": {
+      "type": "product-tabs-v1",
+      "blocks": {
+        "special_product_PqqLFy": {
+          "type": "special-product",
+          "settings": {
+            "heading": "Best Sellers",
+            "style": "normal",
+            "collection": "lawn-garden",
+            "special_product_position": "middle",
+            "product": "",
+            "product_text": "",
+            "image_special_style": 1,
+            "link": ""
+          }
+        },
+        "link_Atw6PB": {
+          "type": "link",
+          "settings": {
+            "heading": "Restaurant & Food Service",
+            "collection": "restaurant-food-service"
+          }
+        },
+        "link_dnipye": {
+          "type": "link",
+          "settings": {
+            "heading": "Automotive",
+            "collection": "automotive"
+          }
+        },
+        "link_NniqiJ": {
+          "type": "link",
+          "settings": {
+            "heading": "Material Handling",
+            "collection": "material-handling"
+          }
+        },
+        "link_wVhg3G": {
+          "type": "link",
+          "settings": {
+            "heading": "Power Tools",
+            "collection": "power-tools"
+          }
+        },
+        "link_A9kttT": {
+          "type": "link",
+          "settings": {
+            "heading": "Building & Construction",
+            "collection": "building-construction"
+          }
+        }
+      },
+      "block_order": [
+        "special_product_PqqLFy",
+        "link_Atw6PB",
+        "link_dnipye",
+        "link_NniqiJ",
+        "link_wVhg3G",
+        "link_A9kttT"
+      ],
+      "custom_css": [
+        ".tab-heading-container > ul > li > a {font-size: 18px; font-weight: bold;}",
+        ".product-card.balance-row-3 .product-card_title > a {font-size: 14px;}",
+        ".price-sale {font-size: 22px;}",
+        ".product-card_labels .label {color: white;}",
+        ".tab-heading .active {color: white;}"
+      ],
+      "settings": {
+        "layout": "boxed",
+        "bg_color": "#ffffff",
+        "border_radius": true,
+        "margin": "45px 0px 0px 0px, 40px 0px 0px 0px, 40px 0px 0px 0px",
+        "padding": "",
+        "heading": "",
+        "subheading": "",
+        "items_resp": "5,4,3,2",
+        "items_spacing": false,
+        "limit": 7,
+        "tab_heading_vertical": false,
+        "alignment_tab_title": "left",
+        "tab_title_style": "3",
+        "enable_slider": true,
+        "loop": true,
+        "controls": true,
+        "controls_position": "2",
+        "dots": true,
+        "autoplay": true,
+        "autoplay_timeout": 4
+      }
+    },
+    "164983673274690bf0": {
+      "type": "section-single-banner",
+      "blocks": {
+        "block_style_ayXWpF": {
+          "type": "block-style",
+          "settings": {
+            "title_color": "",
+            "title_font_size": "",
+            "title_font_weight": 600,
+            "title_line_height": "",
+            "subtext_color": "",
+            "subtext_font_size": "",
+            "subtext_font_weight": 400,
+            "subtext_line_height": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_style_ayXWpF"
+      ],
+      "settings": {
+        "section_height": "145px, 100px, 100px",
+        "layout": "boxed",
+        "margin": "35px 0 0 0, 35px 0 0 0, 35px 0 0 0",
+        "padding": "",
+        "link": "shopify://collections/power-tools",
+        "bg_image_desk": "shopify://shop_images/tools-lined-up.jpg",
+        "bg_size_desk": "cover",
+        "bg_position_desk": "center center",
+        "bg_repeat_desk": "no-repeat",
+        "bg_size_mobi": "cover",
+        "bg_position_mobi": "center top",
+        "bg_repeat_mobi": "no-repeat",
+        "heading": "",
+        "subtext": ""
+      }
+    },
+    "section_list_collections_v3_MNziHr": {
+      "type": "section-list-collections-v3",
+      "disabled": true,
+      "settings": {
+        "layout": "boxed",
+        "margin": "40px 0px 0px 0px",
+        "padding": "",
+        "bg_color": "rgba(0,0,0,0)",
+        "menu": ""
+      }
+    },
+    "product_tabs_v4_kq4LnJ": {
+      "type": "product-tabs-v4",
+      "blocks": {
+        "collection_fFXznV": {
+          "type": "collection",
+          "settings": {
+            "heading": "Top 20",
+            "collection": ""
+          }
+        },
+        "link_pgfDYG": {
+          "type": "link",
+          "settings": {
+            "heading": "Home Audio",
+            "collection": "tv-audio"
+          }
+        },
+        "link_NtJBPW": {
+          "type": "link",
+          "settings": {
+            "heading": "TV",
+            "collection": "tv-audio"
+          }
+        },
+        "link_HgdBeF": {
+          "type": "link",
+          "settings": {
+            "heading": "Wearable",
+            "collection": "phones-pdas"
+          }
+        },
+        "link_yfijkA": {
+          "type": "link",
+          "settings": {
+            "heading": "Cameras",
+            "collection": "cameras"
+          }
+        },
+        "link_fDAXay": {
+          "type": "link",
+          "settings": {
+            "heading": "Wireless Audio",
+            "collection": "ultrabooks"
+          }
+        },
+        "link_WVVCDk": {
+          "type": "link",
+          "settings": {
+            "heading": "Smarthome",
+            "collection": "pc-computers"
+          }
+        }
+      },
+      "block_order": [
+        "collection_fFXznV",
+        "link_pgfDYG",
+        "link_NtJBPW",
+        "link_HgdBeF",
+        "link_yfijkA",
+        "link_fDAXay",
+        "link_WVVCDk"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "boxed",
+        "bg_color": "",
+        "margin": "40px 0px 0px 0px, 40px 0px 0px 0px, 40px 0px 0px 0px",
+        "padding": "",
+        "items_resp": "5,3,2",
+        "items_spacing": false,
+        "limit": 8,
+        "link": "",
+        "alignment_tab_title": "left",
+        "loop": false,
+        "controls": true,
+        "dots": false,
+        "autoplay": false,
+        "autoplay_timeout": 4
+      }
+    },
+    "product_tabs_v4_aMfkd7": {
+      "type": "product-tabs-v4",
+      "blocks": {
+        "collection_8rLJnV": {
+          "type": "collection",
+          "settings": {
+            "heading": "Watering & Irrigation",
+            "collection": "watering-irrigation"
+          }
+        },
+        "link_QrwBR9": {
+          "type": "link",
+          "settings": {
+            "heading": "",
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_8rLJnV",
+        "link_QrwBR9"
+      ],
+      "custom_css": [
+        ".tab-heading .active {font-size: 18p; padding: 2px 19px; font-weight: bold; color: white; background-color: #fed700;}",
+        ".product-card_title > a {font-size: 14px; font-weight: bold;}",
+        ".product-card_labels .label {color: white;}",
+        ".price-sale {font-size: 22px;}"
+      ],
+      "settings": {
+        "layout": "boxed",
+        "bg_color": "",
+        "margin": "40px 0px 0px 0px, 40px 0px 0px 0px, 40px 0px 0px 0px",
+        "padding": "",
+        "items_resp": "3,2",
+        "items_spacing": false,
+        "limit": 8,
+        "image": "shopify://shop_images/us_KSSJGQHTSH84FX14OV0_original_img-v2_hose-reel-m100-1.2.jpg",
+        "link": "shopify://collections/accessories",
+        "alignment_tab_title": "left",
+        "loop": false,
+        "controls": true,
+        "dots": false,
+        "autoplay": false,
+        "autoplay_timeout": 3.4
+      }
+    },
+    "section_list_collections_4Ea3i4": {
+      "type": "section-list-collections",
+      "blocks": {
+        "heading_style_73LzqB": {
+          "type": "heading-style",
+          "settings": {
+            "section_heading_container_align": "left",
+            "section_heading_margin": "",
+            "section_heading_color": "",
+            "section_heading_font_size": "14",
+            "section_heading_font_weight": 600,
+            "section_heading_line_height": ""
+          }
+        },
+        "block_item_LFKGQc": {
+          "type": "block-item",
+          "settings": {
+            "collection": "refrigeration-ice-equipment",
+            "text": "Refrigeration & Ice Equipment"
+          }
+        },
+        "block_item_FChbey": {
+          "type": "block-item",
+          "settings": {
+            "collection": "beverage-equipment",
+            "text": " Beverage Equipment"
+          }
+        },
+        "block_item_enyJRa": {
+          "type": "block-item",
+          "settings": {
+            "collection": "restaurant-furniture",
+            "text": ""
+          }
+        },
+        "block_item_kqLhQV": {
+          "type": "block-item",
+          "settings": {
+            "collection": "food-preparation-equipment",
+            "text": ""
+          }
+        },
+        "block_item_xtLEpr": {
+          "type": "block-item",
+          "settings": {
+            "collection": "landscaping-shade",
+            "text": "Landscaping & Shade"
+          }
+        },
+        "block_item_BTTc9p": {
+          "type": "block-item",
+          "settings": {
+            "collection": "watering-irrigation",
+            "text": "Watering & Irrigation"
+          }
+        },
+        "block_item_4BVcLH": {
+          "type": "block-item",
+          "settings": {
+            "collection": "outdoor-power-equipment",
+            "text": ""
+          }
+        },
+        "block_item_J44Agr": {
+          "type": "block-item",
+          "settings": {
+            "collection": "patio-furniture-accessories",
+            "text": "Patio Furniture & Accessories"
+          }
+        },
+        "block_item_NWiPRX": {
+          "type": "block-item",
+          "settings": {
+            "collection": "power-tools",
+            "text": ""
+          }
+        },
+        "block_item_NgQLnG": {
+          "type": "block-item",
+          "settings": {
+            "collection": "hand-tools",
+            "text": ""
+          }
+        },
+        "block_item_F7RNYD": {
+          "type": "block-item",
+          "settings": {
+            "collection": "building-supplies",
+            "text": "Building Supplies"
+          }
+        },
+        "block_item_E7Td4Y": {
+          "type": "block-item",
+          "settings": {
+            "collection": "lifts-hoists-jacks",
+            "text": "Lifts & Hoists & Jacks"
+          }
+        }
+      },
+      "block_order": [
+        "heading_style_73LzqB",
+        "block_item_LFKGQc",
+        "block_item_FChbey",
+        "block_item_enyJRa",
+        "block_item_kqLhQV",
+        "block_item_xtLEpr",
+        "block_item_BTTc9p",
+        "block_item_4BVcLH",
+        "block_item_J44Agr",
+        "block_item_NWiPRX",
+        "block_item_NgQLnG",
+        "block_item_F7RNYD",
+        "block_item_E7Td4Y"
+      ],
+      "custom_css": [
+        ".section-list-collections h6 {font-size: 15px; font-weight: bold;}",
+        ".section-list-collections .image {padding-right: 0;}",
+        ".collection-item .item {padding: 0;}"
+      ],
+      "settings": {
+        "heading": "Shop By Categories",
+        "display_type": "selected",
+        "display_style": "all",
+        "layout": "boxed",
+        "margin": "",
+        "padding": "",
+        "items_resp": "4,3,2",
+        "items_spacing": true,
+        "bg_color": ""
+      }
+    },
+    "section_logo_list_fgDPpM": {
+      "type": "section-logo-list",
+      "blocks": {
+        "heading_style_RqhgtU": {
+          "type": "heading-style",
+          "settings": {
+            "section_heading_container_align": "center",
+            "section_heading_margin": "0px 0px 35px 0px",
+            "section_heading_color": "",
+            "section_heading_font_size": "",
+            "section_heading_font_weight": 500,
+            "section_heading_line_height": ""
+          }
+        },
+        "block_item_H49zDH": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "image": "shopify://shop_images/3B0A0063C337A3DB43967CEA255D8D94.png",
+            "svg": "",
+            "link": "shopify://collections/refrigeration-ice-equipment"
+          }
+        },
+        "block_item_zhCqEF": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "svg": "",
+            "link": "shopify://collections/headphone"
+          }
+        },
+        "block_item_xMxDGc": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "svg": "",
+            "link": "shopify://collections/mac-computers"
+          }
+        },
+        "block_item_9ptjHE": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "svg": "",
+            "link": "shopify://collections/keyboard"
+          }
+        },
+        "block_item_GzJqWh": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "svg": "",
+            "link": "shopify://collections/keyboard"
+          }
+        },
+        "block_item_DURwFc": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "svg": "",
+            "link": "shopify://collections/eyewear"
+          }
+        },
+        "block_item_gUH7GP": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "svg": "",
+            "link": "shopify://collections/gadgets"
+          }
+        },
+        "block_item_GKApk6": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "svg": "",
+            "link": "shopify://collections/gaming"
+          }
+        },
+        "block_item_p8F8bC": {
+          "type": "block-item",
+          "settings": {
+            "type": "image",
+            "svg": "",
+            "link": "shopify://collections/all-in-one"
+          }
+        }
+      },
+      "block_order": [
+        "heading_style_RqhgtU",
+        "block_item_H49zDH",
+        "block_item_zhCqEF",
+        "block_item_xMxDGc",
+        "block_item_9ptjHE",
+        "block_item_GzJqWh",
+        "block_item_DURwFc",
+        "block_item_gUH7GP",
+        "block_item_GKApk6",
+        "block_item_p8F8bC"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "boxed",
+        "margin": "60px 0px 0px 0px, 40px 0px 0px 0px, 40px 0px 0px 0px",
+        "padding": "",
+        "items_resp": "7,4,2",
+        "items_spacing": false,
+        "border": false,
+        "bg_color": "",
+        "heading": "Shop By Categories",
+        "loop": false,
+        "controls": false,
+        "dots": false,
+        "autoplay": false,
+        "autoplay_timeout": 4
+      }
+    },
+    "section_featured_blog_gQ6LKC": {
+      "type": "section-featured-blog",
+      "blocks": {
+        "heading_style_N6ga3X": {
+          "type": "heading-style",
+          "settings": {
+            "section_heading_container_align": "center",
+            "section_heading_margin": "",
+            "section_heading_color": "",
+            "section_heading_font_size": "",
+            "section_heading_font_weight": 500,
+            "section_heading_line_height": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_style_N6ga3X"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "boxed",
+        "bg_color": "",
+        "margin": "60px 0px 0px 0px, 40px 0px 0px 0px, 40px 0px 0px 0px",
+        "padding": "",
+        "heading": "Buying Guides",
+        "blog": "news",
+        "items_resp": "3,2,2",
+        "visibility_date": false,
+        "show_excerpt": false,
+        "read_more_btn": false,
+        "blog_post_heading_fs": 16,
+        "blog_post_heading_fw": 400,
+        "items_spacing": false,
+        "limit": 6,
+        "enable_slider": true,
+        "loop": false,
+        "controls": false,
+        "dots": false,
+        "autoplay": false,
+        "autoplay_timeout": 4
+      }
+    },
+    "section_newsletter_BPPBLE": {
+      "type": "section-newsletter",
+      "blocks": {
+        "support_fegirb": {
+          "type": "support",
+          "disabled": true,
+          "settings": {
+            "icon": "<svg width=\"30px\" height=\"30px\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M20.9995 19.1864V16.4767C21.0105 16.0337 20.858 15.6021 20.5709 15.264C19.7615 14.3106 16.9855 13.7008 15.8851 13.935C15.0274 14.1176 14.4272 14.9788 13.8405 15.5644C11.5747 14.2785 9.69864 12.4062 8.41026 10.1448C8.99696 9.55929 9.85994 8.96036 10.0429 8.10428C10.2772 7.00777 9.66819 4.24949 8.72138 3.43684C8.38835 3.151 7.96253 2.99577 7.52331 3.00009H4.80817C3.77364 3.00106 2.91294 3.92895 3.00713 4.96919C3.00006 13.935 10.0001 21 19.0265 20.9929C20.0723 21.0873 21.0037 20.2223 20.9995 19.1864Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "text": "<a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">Call Us</a>"
+          }
+        },
+        "support_Q7RTTR": {
+          "type": "support",
+          "settings": {
+            "icon": "<svg fill=\"currentColor\" width=\"30px\" height=\"30px\" viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m16.484 11.976 6.151-5.344v10.627zm-7.926.905 2.16 1.875c.339.288.781.462 1.264.462h.017-.001.014c.484 0 .926-.175 1.269-.465l-.003.002 2.16-1.875 6.566 5.639h-20.009zm-6.572-7.516h20.03l-9.621 8.356c-.104.082-.236.132-.38.132-.005 0-.009 0-.014 0h.001c-.004 0-.009 0-.014 0-.144 0-.277-.05-.381-.133l.001.001zm-.621 1.266 6.15 5.344-6.15 5.28zm21.6-2.441c-.24-.12-.522-.19-.821-.19h-20.285c-.3.001-.584.071-.835.197l.011-.005c-.618.309-1.035.937-1.035 1.663v.004 12.168c.001 1.026.833 1.857 1.858 1.858h20.283c1.026-.001 1.857-.833 1.858-1.858v-12.168c0-.001 0-.002 0-.004 0-.727-.419-1.357-1.029-1.66l-.011-.005z\"></path></svg>",
+            "text": "<a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">E-mail</a>"
+          }
+        },
+        "support_c7a33w": {
+          "type": "support",
+          "disabled": true,
+          "settings": {
+            "icon": "<svg width=\"30px\" height=\"30px\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M9 12C9 12.5523 8.55228 13 8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11C8.55228 11 9 11.4477 9 12Z\" fill=\"currentColor\"></path>\n<path d=\"M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12Z\" fill=\"currentColor\"></path>\n<path d=\"M17 12C17 12.5523 16.5523 13 16 13C15.4477 13 15 12.5523 15 12C15 11.4477 15.4477 11 16 11C16.5523 11 17 11.4477 17 12Z\" fill=\"currentColor\"></path>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M22.75 12C22.75 6.06294 17.9371 1.25 12 1.25C6.06294 1.25 1.25 6.06294 1.25 12C1.25 13.7183 1.65371 15.3445 2.37213 16.7869C2.47933 17.0021 2.50208 17.2219 2.4526 17.4068L1.857 19.6328C1.44927 21.1566 2.84337 22.5507 4.3672 22.143L6.59324 21.5474C6.77814 21.4979 6.99791 21.5207 7.21315 21.6279C8.65553 22.3463 10.2817 22.75 12 22.75C17.9371 22.75 22.75 17.9371 22.75 12ZM12 2.75C17.1086 2.75 21.25 6.89137 21.25 12C21.25 17.1086 17.1086 21.25 12 21.25C10.5189 21.25 9.12121 20.9025 7.88191 20.2852C7.38451 20.0375 6.78973 19.9421 6.20553 20.0984L3.97949 20.694C3.57066 20.8034 3.19663 20.4293 3.30602 20.0205L3.90163 17.7945C4.05794 17.2103 3.96254 16.6155 3.7148 16.1181C3.09752 14.8788 2.75 13.4811 2.75 12C2.75 6.89137 6.89137 2.75 12 2.75Z\" fill=\"currentColor\"></path>\n</svg>",
+            "text": "<a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">Chat Online</a>"
+          }
+        }
+      },
+      "block_order": [
+        "support_fegirb",
+        "support_Q7RTTR",
+        "support_c7a33w"
+      ],
+      "settings": {
+        "layout": "boxed",
+        "bg_color": "#ffffff",
+        "margin": "30px 0px 0px 0px",
+        "padding": "",
+        "enable_newsletter": true,
+        "title": "<strong>NEWSLETTER </strong>",
+        "subtext": "<p>Subscribe to get the latest deals, promotions and offering.</p>",
+        "subtext_2": "<a href=\"/pages/about-us\" target=\"_blank\" title=\"About Us\">About our Newsletter</a>",
+        "newsletter_placholder": "Enter your email",
+        "newsletter_success": "Thanks for subscribing",
+        "background": "#f5f5f6",
+        "show_textbox": true,
+        "textbox_title": "<strong>You Need Help?</strong>",
+        "textbox_subtext": "Do not hastitate to ask, our specialists will help you choose proper products"
+      }
+    },
+    "section_menu_list_bApb4w": {
+      "type": "section-menu-list",
+      "blocks": {
+        "menu_RDTiK6": {
+          "type": "menu",
+          "settings": {
+            "title": "Popular",
+            "menu": ""
+          }
+        },
+        "menu_LQt4hj": {
+          "type": "menu",
+          "settings": {
+            "title": "Menu title",
+            "menu": ""
+          }
+        },
+        "menu_LNDNHK": {
+          "type": "menu",
+          "settings": {
+            "title": "Smarthome",
+            "menu": ""
+          }
+        },
+        "menu_LAgdUV": {
+          "type": "menu",
+          "settings": {
+            "title": "Special Offers",
+            "menu": ""
+          }
+        },
+        "menu_grbCGQ": {
+          "type": "menu",
+          "settings": {
+            "title": "Tips S Tricks",
+            "menu": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_RDTiK6",
+        "menu_LQt4hj",
+        "menu_LNDNHK",
+        "menu_LAgdUV",
+        "menu_grbCGQ"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "boxed",
+        "margin": "30px 0px 0px 0px",
+        "padding": "",
+        "bg_color": ""
+      }
+    },
+    "section_image_with_textbox_Ve3Qbt": {
+      "type": "section-image-with-textbox",
+      "blocks": {
+        "textbox_UJPYfp": {
+          "type": "textbox",
+          "settings": {
+            "title": "Shop By Categories",
+            "textbox": ""
+          }
+        },
+        "image_9X49dM": {
+          "type": "image",
+          "settings": {
+            "link": "shopify://pages/about-us"
+          }
+        },
+        "image_B4XpjC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3B0A0063C337A3DB43967CEA255D8D94.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "textbox_UJPYfp",
+        "image_9X49dM",
+        "image_B4XpjC"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "boxed",
+        "margin": "40px 0px 0px 0px",
+        "padding": "",
+        "bg_color": ""
+      }
+    }
+  },
+  "order": [
+    "1649833316bdb84cae",
+    "164983532526a9abea",
+    "featured_collection_v3_9Wn4jz",
+    "product_tabs_v1_wr4c7L",
+    "164983673274690bf0",
+    "section_list_collections_v3_MNziHr",
+    "product_tabs_v4_kq4LnJ",
+    "product_tabs_v4_aMfkd7",
+    "section_list_collections_4Ea3i4",
+    "section_logo_list_fgDPpM",
+    "section_featured_blog_gQ6LKC",
+    "section_newsletter_BPPBLE",
+    "section_menu_list_bApb4w",
+    "section_image_with_textbox_Ve3Qbt"
+  ]
+}
