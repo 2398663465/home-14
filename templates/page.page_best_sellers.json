@@ -13,7 +13,7 @@
       "type": "best-sellers",
       "settings": {
         "title": "Our Best Sellers",
-        "product_limit": 6,
+        "product_limit": 7,
         "show_price": true,
         "show_image": true,
         "show_rating": false,
