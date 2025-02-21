@@ -2,17 +2,17 @@
     购物车列表模块cart-total
 </div>
 <!-- 购物车摘要区域 -->
-<div class="cart-summary" style="background-color: {{ settings.background_color | escape }};">
+<div class="cart-summary" style="background-color: {{ section.settings.background_color | escape }};">
     <!-- 标题 -->
-    {% if settings.title != blank %}
-      <h2>{{ settings.title | escape }}</h2>
-    {% endif %}
+
+    <h2>{{ section.settings.title | escape }}</h2>
+
   
     <!-- 购物车内容（示例） -->
     <p>这里是购物车摘要的示例内容，你可以替换为实际的购物车逻辑。</p>
   
     <!-- 运费信息 -->
-    {% if settings.show_shipping_info %}
+    {% if section.settings.show_shipping_info %}
       <div class="shipping-info">
         <p>运费将在结账时计算。</p>
       </div>

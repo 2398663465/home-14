@@ -7,32 +7,47 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
-    "best_sellers": {
-      "type": "best-sellers",
-      "settings": {
-        "title": "Our Best Sellers 2",
-        "product_limit": 7,
-        "show_price": true,
-        "show_image": true,
-        "show_rating": false,
-        "show_add_to_cart": true,
-        "layout": "grid",
-        "collection": "restaurant-food-service"
+      "best_sellers": {
+          "type": "best-sellers",
+          "settings": {
+              "title": "Our Best Sellers 2",
+              "product_limit": 5,
+              "show_price": true,
+              "show_image": true,
+              "show_rating": false,
+              "show_add_to_cart": true,
+              "layout": "grid",
+              "collection": "restaurant-food-service"
+          }
+      },
+      "cart-total": {
+          "type": "cart-total",
+          "settings": {
+              "title": "Cart Summary",
+              "show_shipping_info": true,
+              "background_color": "#FED700"
+          }
+      },
+      "select-goods": {
+          "type": "select-goods",
+          "settings": {
+              "title": "Select Goods Title",
+              "show_image": true,
+              "show_price": true,
+              "show_rating": true,
+              "show_add_to_cart": true,
+              "show_wishlist": true,
+              "show_compare": true,
+              "product_limit": 6,
+              "collection": "all"
+          }
       }
-    },
-    "cart-total": {
-      "type": "cart-total",
-      "settings": {
-        "title": "Cart Summary",
-        "show_shipping_info": true,
-        "background_color": "#e53232"
-      }
-    }
   },
   "order": [
-    "best_sellers",
-    "cart-total"
+      "best_sellers",
+      "cart-total",
+      "select-goods"
   ]
 }

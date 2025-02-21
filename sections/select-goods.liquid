@@ -1,0 +1,83 @@
+<div>SELECT_GOODS: {{ section.settings | json }}</div>
+
+<div class="products-container {% if section.settings.layout == 'grid' %}grid-layout{% else %}list-layout{% endif %}">
+        {{section.products | json }}
+</div>
+
+<!-- Schema 定义 -->
+{% schema %}
+{
+    "name": "选择全部商品select goods",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "选择全部商品select goods"
+    },
+    {
+      "type": "number",
+      "id": "product_limit",
+      "label": "显示商品数量",
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "显示价格",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "显示图片",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "显示评分",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_add_to_cart",
+      "label": "显示加入购物车按钮",
+      "default": true
+    },
+    {
+      "type": "radio",
+      "id": "layout",
+      "label": "布局方式",
+      "options": [
+        { "value": "grid", "label": "网格" },
+        { "value": "list", "label": "列表" }
+      ],
+      "default": "grid"
+    }
+  ]      
+}   
+{% endschema %}
+
+<style>
+    .products-container.grid-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .products-container.list-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .product-item {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  
