@@ -27,7 +27,7 @@
       "settings": {
         "title": "Cart Summary",
         "show_shipping_info": true,
-        "background_color": "#f5f5f5"
+        "background_color": "#e53232"
       }
     }
   },
