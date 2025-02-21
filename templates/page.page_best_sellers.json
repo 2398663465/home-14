@@ -19,7 +19,7 @@
         "show_rating": false,
         "show_add_to_cart": true,
         "layout": "grid",
-        "collection": "alcohol-distiller"
+        "collection": "restaurant-food-service"
       }
     },
     "cart-total": {
