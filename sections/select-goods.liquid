@@ -10,6 +10,14 @@
       </h3>
 
       {% endif %}
+      {% if section.settings.show_image %}
+        <a href="{{ product.url }}" class="product-image">
+          <!-- 图片懒加载 -->
+          <img data-src="{{ product.featured_image | img_url:'medium' }}"
+             alt="{{ product.title | escape }}" class="lazyload">
+
+        </a>
+      {% endif %}
     </div>
   {% endfor %}
 </div>
