@@ -32,6 +32,9 @@
     },
     "select-goods": {
       "type": "select-goods",
+      "custom_css": [
+        ".product-item a {font-size: 16px;}"
+      ],
       "settings": {
         "title": "Select Goods Title",
         "product_limit": 5,
