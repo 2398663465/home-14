@@ -34,7 +34,7 @@
       "type": "select-goods",
       "settings": {
         "title": "Select Goods Title",
-        "product_limit": 6,
+        "product_limit": 5,
         "show_price": true,
         "show_image": true,
         "show_rating": true,
