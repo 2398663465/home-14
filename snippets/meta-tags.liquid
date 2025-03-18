@@ -29,6 +29,37 @@
 {%- if request.page_type == 'product' -%}
   <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
   <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
+  {%- if product.metafields.custom.seo_href != blank and product.metafields.custom.seo_hreflang != blank -%}
+    <link
+      rel="alternate"
+      hreflang="{{ product.metafields.custom.seo_hreflang }}"
+      href="{{  product.metafields.custom.seo_href }}"
+    >
+  {%- endif -%}
+{%- endif -%}
+
+{%- if request.page_type == 'collection' -%}
+  {%- if collection.metafields.custom.seo_href != blank and collection.metafields.custom.seo_hreflang != blank -%}
+    <link
+      rel="alternate"
+      hreflang="{{ collection.metafields.custom.seo_hreflang }}"
+      href="{{  collection.metafields.custom.seo_href }}"
+    >
+  {%- endif -%}
+
+  {%- if collection.handle == 'all' -%}
+    <link rel="alternate" hreflang="en-us" href="https://www.major-lutie.com{{ request.path }}">
+  {%- endif -%}
+{%- endif -%}
+
+{%- if request.page_type == 'page' -%}
+  {%- if page.metafields.custom.seo_href != blank and page.metafields.custom.seo_hreflang != blank -%}
+    <link
+      rel="alternate"
+      hreflang="{{ page.metafields.custom.seo_hreflang }}"
+      href="{{  page.metafields.custom.seo_href }}"
+    >
+  {%- endif -%}
 {%- endif -%}
 
 {%- if settings.social_twitter_link != blank -%}
