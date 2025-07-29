@@ -62,9 +62,19 @@
   {%- endif -%}
 {%- endif -%}
 
+{%- if request.page_type == 'article' -%}
+  {%- if article.metafields.custom.seo_href != blank and article.metafields.custom.seo_hreflang != blank -%}
+    <link
+      rel="alternate"
+      hreflang="{{ article.metafields.custom.seo_hreflang }}"
+      href="{{  article.metafields.custom.seo_href }}"
+    >
+  {%- endif -%}
+{%- endif -%}
+
 {%- if settings.social_twitter_link != blank -%}
   <meta name="twitter:site" content="{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}">
 {%- endif -%}
-<meta name="twitter:card" content="summary_large_image" ast="{{ request.page_type }}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ og_description | escape }}">
