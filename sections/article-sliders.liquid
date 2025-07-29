@@ -1,0 +1,374 @@
+{% comment %} 是否读配置项来读 handle {% endcomment %}
+{% assign blogs_linklist_handle = 'blogs' %}
+{% assign articles = '' | split: ',' %}
+
+{% if section.blocks.size == 0 %}
+  {% liquid
+    assign blogs_linklist = linklists[blogs_linklist_handle]
+    for blog_link in blogs_linklist.links
+      assign articles = articles | concat: blog_link.object.articles
+    endfor
+    assign articles = articles | uniq | sort: 'published_at' | reverse
+    assign limitNumber = section.settings.number_of_blogs
+  %}
+
+{% else %}
+{% assign articles = section.blocks %}
+{% assign limitNumber = section.blocks.size %}
+{% endif %}
+
+{% if section.settings.desktop_image %}
+  <style>
+    .article-sliders-container-{{ section.id }} {
+      background-image: url({{ section.settings.desktop_image | img_url: 'master' }});
+      background-size: cover;
+    }
+    {% if section.settings.mobile_image %}
+      @media (max-width: 767.98px) {
+        .article-sliders-container-{{ section.id }} {
+          background-image: url({{ section.settings.mobile_image | img_url: 'master' }});
+          background-size: 100% auto;
+        }
+      }
+    {% endif %}
+  </style>
+
+  {% assign space_class = 'py-12' %}
+{% else %}
+  {% assign space_class = 'my-12' %}
+{% endif %}
+
+{% liquid
+  if section.settings.enable_adjust_h_tag
+    assign adjusted_mark = section.settings.adjust_the_h_tag_to
+  else
+    assign adjusted_mark = 'h2'
+  endif
+%}
+
+<div class="article-sliders-container-{{ section.id }} overflow-hidden py-12" style="background: #40423B;">
+  {% if section.settings.heading != blank %}
+    <div class="container">
+      <div class="row justify-content-center">
+        <{{ adjusted_mark }} class="h2 fw-bold col-12 col-md-6 mb-7 text-center {% if section.settings.text_color == 'white' %}text-body-inverse{% endif %}">
+          {{ section.settings.heading }}
+        </{{ adjusted_mark }}>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="container position-relative">
+    <div
+      class="{% if articles.size > 1 %}as-swiper{% endif %} swiper overflow-visible"
+      {% if section.settings.auto_rotate_slides %}
+        data-autoplay="{{ section.settings.change_slides_every | times: 1000 }}"
+      {% endif %}
+    >
+      <div class="swiper-wrapper">
+        {% for articleDataItem in articles limit: limitNumber %}
+          {% comment %} 解决数据源不同 {% endcomment %}
+          {% if section.blocks.size == 0 %}
+            {% assign article = articleDataItem %}
+          {% else %}
+            {% assign article = articleDataItem.settings.article %}
+          {% endif %}
+
+          <div class="article-item swiper-slide h-auto">
+            <div class="article-container d-flex flex-column flex-md-row h-100 overflow-hidden rounded-2">
+              <div class="article-cover flex-shrink-0">
+                <figure class="img-wrapper m-0 h-md-100 ratio ratio-1x1">
+                  {% if article.image != blank %}
+                    <picture>
+                      {{
+                        article.image
+                        | image_url: width: article.image.width
+                        | image_tag:
+                          class: 'object-fit-cover',
+                          loading: 'lazy',
+                          widths: '360, 480, 600, 720, 840, 960, 1080, 1200, 1320, 1440, 1680, 1800, 1920',
+                          sizes: '(min-width: 1921px) 960px, (min-width: 1440px) 780px, (min-width: 1300px) 720px, (min-width: 1152px) calc(60vw - 56px), calc(100vw - 48px)'
+                      }}
+                    </picture>
+                  {% else %}
+                    {{ 'lifestyle-1' | placeholder_svg_tag: 'absolute-center placeholder-svg bg-gray-400 w-100 h-100' }}
+                  {% endif %}
+                </figure>
+              </div>
+
+              <div class="article-info flex-grow-1 bg-black text-white">
+                <div class="d-flex flex-column align-items-start justify-content-md-center py-7 py-md-10 py-lg-12 px-3 px-md-10 px-lg-12 h-100">
+                  {% if section.settings.show_category %}
+                    {% liquid
+                      assign split_1 = article.url | split: '/blogs/'
+                      assign split_2 = split_1[1] | split: '/'
+                      assign blog_handle = split_2[0] | strip
+                      assign article_blog = blogs[blog_handle]
+                    %}
+                    <p class="mb-3 lead text-primary">{{ article_blog.title }}</p>
+                  {% endif %}
+
+                  <h3 class="mb-2 ellipsis-3">{{ article.title }}</h3>
+
+                  {% if section.settings.show_excerpt %}
+                    <p class="mb-4 ellipsis-3">{{ article.excerpt_or_content | strip_html }}</p>
+                  {% endif %}
+
+                  {% if section.settings.show_date or section.settings.show_author or section.settings.show_comments %}
+                    <div class="mb-7 fs-footnote gray-400">
+                      {% if section.settings.show_date %}
+                        <span>{{ article.published_at | time_tag: format: 'abbreviated_date' }}</span>
+                      {% endif %}
+
+                      {% if section.settings.show_date and section.settings.show_author %}
+                        <span>/</span>
+                      {% endif %}
+
+                      {% if section.settings.show_author %}
+                        <span>
+                          {{- 'sections.blog_posts.by' | t }}
+                          {{ article.author -}}
+                        </span>
+                      {% endif %}
+
+                      {% if article_blog.comments_enabled? and section.settings.show_comments and article.comments_count > 0 %}
+                        {% if section.settings.show_date or section.settings.show_author %}
+                          {% assign show_comments_dividing = true %}
+                        {% endif %}
+
+                        {% if show_comments_dividing %}
+                          <span>/</span>
+                        {% endif %}
+
+                        <span class="d-inline-block">
+                          {%- render 'icon-article-comments' -%}
+                          <span class="ps-1">{{ article.comments_count }}</span>
+                        </span>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+
+                  <a href="{{ article.url }}" class="btn btn-light mt-auto mt-md-0">
+                    {{- 'sections.blog_posts.read_more' | t -}}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if articles.size > 1 %}
+      <div class="position-absolute absolute-center d-none d-md-block pe-none">
+        <div class="container h-100">
+          <div class="position-relative h-100">
+            <button class="as-carousel-control-prev carousel-control-prev carousel-control d-flex px-4 pe-auto">
+              <span
+                class="carousel-control-prev-icon d-flex justify-content-center align-items-center border"
+                aria-hidden="true"
+              >
+                {%- render 'icon-chevron-left' -%}
+              </span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="as-carousel-control-next carousel-control-next carousel-control d-flex px-4 pe-auto">
+              <span
+                class="carousel-control-next-icon d-flex justify-content-center align-items-center border"
+                aria-hidden="true"
+              >
+                {%- render 'icon-chevron-right' -%}
+              </span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="container d-md-none">
+    <div class="mt-7 {% if section.settings.text_color == 'white' %}text-body-inverse{% endif %}">
+      <div class="as-swiper-indicators swiper-indicators d-flex flex-wrap justify-content-center"></div>
+    </div>
+  </div>
+</div>
+
+<input
+  class="as-article-sliders-script"
+  type="hidden"
+  value="{{ 'article-sliders.min.js' | asset_url }}"
+  {% if request.design_mode %}
+    data-design-mode="yes"
+  {% endif %}
+>
+<script>
+  (function () {
+    var $url = document.querySelector('.as-article-sliders-script');
+    if (!window.articleSliders && $url) {
+      window.articleSliders = $url.value;
+      var $script = document.createElement('script');
+      $script.src = window.articleSliders;
+      $script.defer = 'defer';
+      document.body.appendChild($script);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Article Sliders",
+  "tag": "section",
+  "class": "as-article-sliders article-sliders",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_adjust_h_tag",
+      "label": "Enable adjust H tag",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "adjust_the_h_tag_to",
+      "label": "Adjust the H tag to",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "label": "Text color",
+      "options": [
+        {
+          "value": "white",
+          "label": "Light"
+        },
+        {
+          "value": "black",
+          "label": "Dark"
+        }
+      ],
+      "default": "black"
+    },
+    {
+      "type": "header",
+      "content": "IMAGE"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show category",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show excerpt",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_comments",
+      "default": false,
+      "label": "t:sections.blog-posts.settings.show_comments.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "number_of_blogs",
+      "label": "Number of blogs",
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "auto_rotate_slides",
+      "label": "Auto-rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "change_slides_every",
+      "label": "Change slides every",
+      "min": 5,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "info": "Only work when active auto-rotate",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article Sliders"
+    }
+  ]
+}
+{% endschema %}
