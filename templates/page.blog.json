@@ -8,13 +8,338 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
+    "sections": {
     "main": {
-      "type": "default-page",
-      "settings": {}
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "enable_content": false
+      }
+    },
+    "article_sliders_TWEjRT": {
+      "type": "article-sliders",
+      "settings": {
+        "heading": "The Latest",
+        "enable_adjust_h_tag": false,
+        "adjust_the_h_tag_to": "h1",
+        "text_color": "white",
+        "show_category": true,
+        "show_date": true,
+        "show_excerpt": true,
+        "show_comments": true,
+        "show_author": false,
+        "number_of_blogs": 3,
+        "auto_rotate_slides": true,
+        "change_slides_every": 5
+      }
+    },
+    "nav_bar_mkw68r": {
+      "type": "nav-bar",
+      "blocks": {
+        "tab_g8dC9g": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "News",
+            "section_number": "2"
+          }
+        },
+        "tab_UbMkkR": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Deals",
+            "section_number": "3"
+          }
+        },
+        "tab_tRtVUy": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Home Gym Equipment",
+            "section_number": "4"
+          }
+        },
+        "tab_UUi8Ni": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Workouts & Training",
+            "section_number": "5"
+          }
+        },
+        "tab_UxgqDE": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Nutrition & Lifestyle",
+            "section_number": "6"
+          }
+        },
+        "tab_zchPdi": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Community",
+            "section_number": "7"
+          }
+        },
+        "tab_qWA6jz": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Wiki",
+            "section_number": "8"
+          }
+        },
+        "tab_abpDMC": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Campaign",
+            "section_number": "9"
+          }
+        }
+      },
+      "block_order": [
+        "tab_g8dC9g",
+        "tab_UbMkkR",
+        "tab_tRtVUy",
+        "tab_UUi8Ni",
+        "tab_UxgqDE",
+        "tab_zchPdi",
+        "tab_qWA6jz",
+        "tab_abpDMC"
+      ],
+      "settings": {
+        "color_schema": "white",
+        "text_color": "black",
+        "enable_style_of_arrow": true,
+        "enable_adjust_h_tag": false,
+        "adjust_the_h_tag_to": "h1"
+      }
+    },
+    "blog_posts_JYcVnx": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "News",
+        "enable_adjust_h_tag": true,
+        "adjust_the_h_tag_to": "h2",
+        "blog": "news",
+        "heading_colors": "black",
+        "color_schema": "white",
+        "show_as_card": true,
+        "cards_color": "none",
+        "posts_per_row": "3",
+        "number_of_blogs": 3,
+        "enable_rotate": true,
+        "show_featured_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": true,
+        "show_comments": true,
+        "show_button": true,
+        "show_view_all": true,
+        "button_position": "right",
+        "button_set_style": "text_link",
+        "section_top": "section",
+        "section_bottom": "section"
+      }
+    },
+    "blog_posts_UieNPA": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Deals",
+        "enable_adjust_h_tag": true,
+        "adjust_the_h_tag_to": "h2",
+        "blog": "deals",
+        "heading_colors": "black",
+        "color_schema": "white",
+        "show_as_card": true,
+        "cards_color": "none",
+        "posts_per_row": "3",
+        "number_of_blogs": 3,
+        "enable_rotate": true,
+        "show_featured_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": true,
+        "show_comments": true,
+        "show_button": true,
+        "show_view_all": true,
+        "button_position": "right",
+        "button_set_style": "text_link",
+        "section_top": "section",
+        "section_bottom": "section"
+      }
+    },
+    "blog_posts_GjBjLp": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Home Gym Equipment",
+        "enable_adjust_h_tag": true,
+        "adjust_the_h_tag_to": "h2",
+        "blog": "home-gym",
+        "heading_colors": "black",
+        "color_schema": "white",
+        "show_as_card": true,
+        "cards_color": "none",
+        "posts_per_row": "3",
+        "number_of_blogs": 5,
+        "enable_rotate": true,
+        "show_featured_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": true,
+        "show_comments": true,
+        "show_button": true,
+        "show_view_all": true,
+        "button_position": "right",
+        "button_set_style": "text_link",
+        "section_top": "section",
+        "section_bottom": "section"
+      }
+    },
+    "blog_posts_tRrTGW": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Workouts & Training",
+        "enable_adjust_h_tag": true,
+        "adjust_the_h_tag_to": "h2",
+        "blog": "training-tips",
+        "heading_colors": "black",
+        "color_schema": "white",
+        "show_as_card": true,
+        "cards_color": "none",
+        "posts_per_row": "3",
+        "number_of_blogs": 5,
+        "enable_rotate": true,
+        "show_featured_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": true,
+        "show_comments": true,
+        "show_button": true,
+        "show_view_all": true,
+        "button_position": "right",
+        "button_set_style": "text_link",
+        "section_top": "section",
+        "section_bottom": "section"
+      }
+    },
+    "blog_posts_LP4rGt": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Nutrition & Lifestyle",
+        "enable_adjust_h_tag": true,
+        "adjust_the_h_tag_to": "h2",
+        "blog": "exercise-and-nutrition",
+        "heading_colors": "black",
+        "color_schema": "white",
+        "show_as_card": true,
+        "cards_color": "none",
+        "posts_per_row": "3",
+        "number_of_blogs": 5,
+        "enable_rotate": true,
+        "show_featured_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": true,
+        "show_comments": true,
+        "show_button": true,
+        "show_view_all": true,
+        "button_position": "right",
+        "button_set_style": "text_link",
+        "section_top": "section",
+        "section_bottom": "section"
+      }
+    },
+    "blog_posts_tgexFp": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Community",
+        "enable_adjust_h_tag": true,
+        "adjust_the_h_tag_to": "h2",
+        "blog": "community",
+        "heading_colors": "black",
+        "color_schema": "white",
+        "show_as_card": true,
+        "cards_color": "none",
+        "posts_per_row": "3",
+        "number_of_blogs": 3,
+        "enable_rotate": true,
+        "show_featured_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": true,
+        "show_comments": true,
+        "show_button": true,
+        "show_view_all": true,
+        "button_position": "right",
+        "button_set_style": "text_link",
+        "section_top": "section",
+        "section_bottom": "section"
+      }
+    },
+    "blog_posts_mBRxJY": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Wiki",
+        "enable_adjust_h_tag": true,
+        "adjust_the_h_tag_to": "h2",
+        "blog": "wiki",
+        "heading_colors": "black",
+        "color_schema": "white",
+        "show_as_card": true,
+        "cards_color": "none",
+        "posts_per_row": "3",
+        "number_of_blogs": 5,
+        "enable_rotate": true,
+        "show_featured_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": false,
+        "show_comments": true,
+        "show_button": true,
+        "show_view_all": true,
+        "button_position": "right",
+        "button_set_style": "text_link",
+        "section_top": "section",
+        "section_bottom": "section"
+      }
+    },
+    "blog_posts_HbAtnE": {
+      "type": "blog-posts",
+      "settings": {
+        "heading": "Campaign",
+        "enable_adjust_h_tag": true,
+        "adjust_the_h_tag_to": "h2",
+        "blog": "campaign",
+        "heading_colors": "black",
+        "color_schema": "white",
+        "show_as_card": true,
+        "cards_color": "none",
+        "posts_per_row": "3",
+        "number_of_blogs": 5,
+        "enable_rotate": true,
+        "show_featured_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_excerpt": false,
+        "show_comments": true,
+        "show_button": true,
+        "show_view_all": true,
+        "button_position": "right",
+        "button_set_style": "text_link",
+        "section_top": "section",
+        "section_bottom": "section"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "article_sliders_TWEjRT",
+    "nav_bar_mkw68r",
+    "blog_posts_JYcVnx",
+    "blog_posts_UieNPA",
+    "blog_posts_GjBjLp",
+    "blog_posts_tRrTGW",
+    "blog_posts_LP4rGt",
+    "blog_posts_tgexFp",
+    "blog_posts_mBRxJY",
+    "blog_posts_HbAtnE"
   ]
 }
