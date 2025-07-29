@@ -1,0 +1,545 @@
+{% liquid
+  assign is_article_exists = 0
+  assign current_article_id = 1
+  if article
+    assign current_article_id = article.id
+  endif
+  assign post_limit = section.settings.number_of_blogs
+
+  assign show_padding = true
+
+  case section.settings.color_schema
+    when 'primary'
+      assign background_color = 'bg-primary'
+    when 'secondary'
+      assign background_color = 'bg-secondary'
+    when 'inverse'
+      assign background_color = 'bg-inverse'
+    when 'white'
+      assign background_color = 'bg-white'
+      assign show_padding = false
+    when 'black'
+      assign background_color = 'bg-black'
+  endcase
+
+  case section.settings.heading_colors
+    when 'white'
+      assign heading_colors = 'text-body-inverse'
+      assign btn_style = 'light'
+    else
+      assign heading_colors = ''
+      assign btn_style = 'primary'
+  endcase
+
+
+  if section.settings.show_as_card
+    assign divider_style = 'col d-none'
+    assign row_col_gap = 'row-cols-md-2 g-4'
+  else
+    assign divider_style = 'col d-lg-none'
+    assign row_col_gap = 'gx-4 gy-0 gy-lg-10'
+  endif
+
+  if section.settings.enable_adjust_h_tag
+    assign adjusted_mark = section.settings.adjust_the_h_tag_to
+  else
+    assign adjusted_mark = 'h2'
+  endif
+-%}
+{% assign has_first_margin_top = true %}
+{% if section.settings.show_as_card and section.settings.enable_rotate %}
+  {% assign swiper_mode = true %}
+{% endif %}
+
+<div class="{{ background_color }} {% if show_padding %} pt-{{ section.settings.section_top }} pb-{{ section.settings.section_bottom }}{% else %}mt-{{ section.settings.section_top }} mb-{{ section.settings.section_bottom }}{% endif %} overflow-hidden">
+  <div class="container">
+    {% if section.settings.heading != blank %}
+      {% if section.settings.button_position == 'right' %}
+        <{{ adjusted_mark }} class="h3 fw-bold text-start mb-0 {{ heading_colors }} d-flex justify-content-between align-items-center">
+          {{ section.settings.heading | escape }}
+          {% if section.settings.blog != blank and section.settings.show_view_all and post_limit < section.settings.blog.articles_count %}
+            <a class="flex-shrink-0 ms-3 btn {% if section.settings.button_set_style == 'outline' %}btn-outline-{{ btn_style }}{% else %}btn-link link-primary{% endif %}" href="{{ section.settings.blog.url }}">
+              {{ 'sections.blog_posts.view_all' | t }}
+            </a>
+          {% endif %}
+        </{{ adjusted_mark }}>
+      {% else %}
+        <{{ adjusted_mark }} class="h2 fw-bold text-center mb-0 {{ heading_colors }}">
+          {{ section.settings.heading | escape }}
+        </{{ adjusted_mark }}>
+      {% endif %}
+      {% assign has_first_margin_top = false %}
+    {% endif %}
+
+    {% if section.settings.blog != blank and section.settings.blog.articles_count > 0 %}
+      <div class="{% unless has_first_margin_top %}mt-6{% endunless %} {% if swiper_mode and section.settings.blog.articles.size > 1 %}as-swiper swiper overflow-visible{% endif %}" data-posts-per-row={{ section.settings.posts_per_row }}>
+        <div class="{% if swiper_mode and section.settings.blog.articles.size > 1 %}as-swiper-wrapper swiper-wrapper flex-nowrap w-auto{% endif %} row row-cols-1 row-cols-lg-{{ section.settings.posts_per_row }} {{ row_col_gap }}">
+          {% for tmp_article in section.settings.blog.articles limit: post_limit %}
+            {% unless forloop.first %}
+              {% comment %}分割线{% endcomment %}
+              {% unless swiper_mode %}
+                <div class="{{ divider_style }}">
+                  <div class="line border-top"></div>
+                </div>
+              {% endunless %}
+            {% endunless %}
+            {% comment %}过滤重复的Blog post{% endcomment %}
+            {% if tmp_article.id != current_article_id %}
+              <div class="{% if swiper_mode and section.settings.blog.articles.size > 1 %}as-swiper-slide{% endif %} col">
+                {% if section.settings.show_as_card %}
+                  {% render 'blog-posts-card-with-bg',
+                    article: tmp_article,
+                    cards_color: section.settings.cards_color,
+                    posts_per_row: section.settings.posts_per_row,
+                    show_featured_image: section.settings.show_featured_image,
+                    show_date: section.settings.show_date,
+                    show_author: section.settings.show_author,
+                    show_excerpt: section.settings.show_excerpt,
+                    show_comments: section.settings.show_comments,
+                    show_button: section.settings.show_button
+                  %}
+                {% else %}
+                  {% render 'blog-posts-card-without-bg',
+                    article: tmp_article,
+                    posts_per_row: section.settings.posts_per_row,
+                    show_featured_image: section.settings.show_featured_image,
+                    show_date: section.settings.show_date,
+                    show_author: section.settings.show_author,
+                    show_excerpt: section.settings.show_excerpt,
+                    show_comments: section.settings.show_comments,
+                    show_button: section.settings.show_button %}
+                {% endif %}
+              </div>
+            {% else %}
+              {% assign is_article_exists = 1 %}
+            {% endif %}
+          {% endfor %}
+          {% comment %}过滤后，补上一篇Blog post{% endcomment %}
+          {% if is_article_exists == 1 %}
+            {% for tmp_article in section.settings.blog.articles offset: post_limit limit: 1 %}
+              {% comment %}分割线{% endcomment %}
+              {% unless swiper_mode %}
+                <div class="{{ divider_style }}">
+                  <div class="line border-top"></div>
+                </div>
+              {% endunless %}
+                <div class="{% if swiper_mode and section.settings.blog.articles.size > 1 %}swiper-slide{% endif %} col">
+                  {% if section.settings.show_as_card %}
+                    {% render 'blog-posts-card-with-bg',
+                      article: tmp_article,
+                      cards_color: section.settings.cards_color,
+                      posts_per_row: section.settings.posts_per_row,
+                      show_featured_image: section.settings.show_featured_image,
+                      show_date: section.settings.show_date,
+                      show_author: section.settings.show_author,
+                      show_excerpt: section.settings.show_excerpt,
+                      show_comments: section.settings.show_comments,
+                      show_button: section.settings.show_button
+                    %}
+                  {% else %}
+                    {% render 'blog-posts-card-without-bg',
+                      article: tmp_article,
+                      posts_per_row: section.settings.posts_per_row,
+                      show_featured_image: section.settings.show_featured_image,
+                      show_date: section.settings.show_date,
+                      show_author: section.settings.show_author,
+                      show_excerpt: section.settings.show_excerpt,
+                      show_comments: section.settings.show_comments,
+                      show_button: section.settings.show_button %}
+                  {% endif %}
+                </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        {% if swiper_mode and section.settings.blog.articles.size > 1 %}
+          <div class="position-absolute absolute-center d-none d-md-block pe-none">
+            <button class="as-carousel-control-prev carousel-control-prev carousel-control ms-4 d-none pe-auto">
+              <span class="carousel-control-prev-icon d-flex justify-content-center align-items-center border" aria-hidden="true">
+                {%- render 'icon-chevron-left' -%}
+              </span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="as-carousel-control-next carousel-control-next carousel-control me-4 d-none pe-auto">
+              <span class="carousel-control-next-icon d-flex justify-content-center align-items-center border" aria-hidden="true">
+                {%- render 'icon-chevron-right' -%}
+              </span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="as-swiper-scrollbar swiper-scrollbar position-relative mx-auto mt-10 d-none"></div>
+    {% else %}
+      {% comment %}默认样式{% endcomment %}
+      <div class="{% unless has_first_margin_top %}mt-6{% endunless %}">
+        <div class="row row-cols-1 row-cols-lg-{{ section.settings.posts_per_row }} {{ row_col_gap }}">
+          {% for i in (1..post_limit) %}
+            {% unless forloop.first %}
+              {% comment %}分割线{% endcomment %}
+              <div class="{{ divider_style }}">
+                <div class="line border-top"></div>
+              </div>
+            {% endunless %}
+            <div class="col">
+              {% if section.settings.show_as_card %}
+                {% render 'blog-posts-card-with-bg',
+                  article: blank,
+                  cards_color: section.settings.cards_color,
+                  posts_per_row: section.settings.posts_per_row,
+                  show_featured_image: section.settings.show_featured_image,
+                  show_date: section.settings.show_date,
+                  show_author: section.settings.show_author,
+                  show_excerpt: section.settings.show_excerpt,
+                  show_comments: section.settings.show_comments,
+                  show_button: section.settings.show_button
+                %}
+              {% else %}
+                  {% render 'blog-posts-card-without-bg',
+                    article: blank,
+                    posts_per_row: section.settings.posts_per_row,
+                    show_featured_image: section.settings.show_featured_image,
+                    show_date: section.settings.show_date,
+                    show_author: section.settings.show_author,
+                    show_excerpt: section.settings.show_excerpt,
+                    show_comments: section.settings.show_comments,
+                    show_button: section.settings.show_button %}
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if section.settings.button_position == 'bottom' and section.settings.blog != blank and section.settings.show_view_all and post_limit < section.settings.blog.articles_count %}
+      <div class="mt-10 text-center">
+        <a class="btn {% if section.settings.button_set_style == 'outline' %}btn-outline-{{ btn_style }}{% else %}btn-link link-primary{% endif %}" href="{{ section.settings.blog.url }}">
+          {{ 'sections.blog_posts.view_all' | t }}
+        </a>
+      </div>
+    {% endif %}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          {% render block %}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<input
+  class="as-blog-posts-script"
+  type="hidden"
+  value="{{ 'blog-posts.min.js' | asset_url }}"
+  {% if request.design_mode %}
+    data-design-mode="yes"
+  {% endif %}
+>
+<script>
+  (function () {
+    var $url = document.querySelector('.as-blog-posts-script');
+    if (!window.blogPosts && $url) {
+      window.blogPosts = $url.value;
+      var $script = document.createElement('script');
+      $script.src = window.blogPosts;
+      $script.defer = 'defer';
+      document.body.appendChild($script);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.blog-posts.name",
+  "tag": "section",
+  "class": "as-blog-posts blog-posts",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Talk about your brand",
+      "label": "t:sections.blog-posts.settings.heading.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_adjust_h_tag",
+      "label": "Enable adjust H tag",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "adjust_the_h_tag_to",
+      "label": "Adjust the H tag to",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
+      ]
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.blog-posts.settings.blog.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_colors",
+      "label": "t:sections.blog-posts.settings.heading_colors.label",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ],
+      "default": "black"
+    },
+    {
+      "type": "select",
+      "id": "color_schema",
+      "label": "Background color",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "inverse",
+          "label": "Inverse"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_as_card",
+      "default": false,
+      "label": "t:sections.blog-posts.settings.show_as_card.label"
+    },
+    {
+      "type": "select",
+      "id": "cards_color",
+      "label": "t:sections.blog-posts.settings.cards_color.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "radio",
+      "id": "posts_per_row",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "3",
+      "label": "t:sections.blog-posts.settings.posts_per_row.label"
+    },
+    {
+      "type": "range",
+      "id": "number_of_blogs",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 3,
+      "label": "Number of blogs"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_rotate",
+      "default": false,
+      "label": "Enable rotate",
+      "info": "Only works when \"Show as card\" is checked."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_image",
+      "default": true,
+      "label": "t:sections.blog-posts.settings.show_featured_image.label",
+      "info": "t:sections.blog-posts.settings.show_featured_image.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.blog-posts.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.blog-posts.settings.show_author.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "default": true,
+      "label": "t:sections.blog-posts.settings.show_excerpt.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_comments",
+      "default": false,
+      "label": "t:sections.blog-posts.settings.show_comments.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "default": true,
+      "label": "t:sections.blog-posts.settings.show_button.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "t:sections.blog-posts.settings.show_view_all.label"
+    },
+    {
+      "type": "select",
+      "id": "button_position",
+      "label": "Button Position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "select",
+      "id": "button_set_style",
+      "label": "Button Set Style",
+      "options": [
+        {
+          "value": "outline",
+          "label": "Outlined button"
+        },
+        {
+          "value": "text_link",
+          "label": "Text link"
+        }
+      ],
+      "default": "outline"
+    },
+    {
+      "type": "header",
+      "content": "Section space"
+    },
+    {
+      "type": "select",
+      "id": "section_top",
+      "label": "Section top space",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "3",
+          "label": "Small"
+        },
+        {
+          "value": "section",
+          "label": "Large"
+        }
+      ],
+      "default": "section"
+    },
+    {
+      "type": "select",
+      "id": "section_bottom",
+      "label": "Section bottom space",
+      "options": [
+        {
+          "value": "0",
+          "label": "None"
+        },
+        {
+          "value": "3",
+          "label": "Small"
+        },
+        {
+          "value": "section",
+          "label": "Large"
+        }
+      ],
+      "default": "section"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.blog-posts.name",
+      "settings": {
+        "blog": "News"
+      }
+    }
+  ]
+}
+{% endschema %}
