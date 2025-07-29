@@ -1,0 +1,271 @@
+{%- liquid
+  case section.settings.color_schema
+    when 'primary'
+      assign background_color = 'bg-primary'
+      assign arrow_border_color = '--se-gray-100'
+    when 'secondary'
+      assign background_color = 'bg-secondary'
+      assign arrow_border_color = '--se-gray-400'
+    when 'inverse'
+      assign background_color = 'bg-inverse'
+      assign arrow_border_color = '--se-gray-300'
+    when 'white'
+      assign background_color = 'bg-white'
+      assign arrow_border_color = '--se-gray-300'
+    when 'black'
+      assign background_color = 'bg-black'
+      assign arrow_border_color = '--se-gray-400'
+  endcase
+
+  case section.settings.text_color
+    when 'white'
+      assign text_color = 'gray-300'
+    else
+      assign text_color = 'gray-600'
+  endcase
+
+  assign sectionsList = ''
+  for block in section.blocks
+    if block.settings.section_number != blank
+      if sectionsList != blank
+        assign sectionsList = sectionsList | append: '&' | append: block.settings.section_number
+      else
+        assign sectionsList = block.settings.section_number
+      endif
+    endif
+  endfor
+
+  assign enable_style_of_arrow = section.settings.enable_style_of_arrow
+
+  if section.settings.enable_adjust_h_tag
+    assign adjusted_mark = section.settings.adjust_the_h_tag_to
+  else
+    assign adjusted_mark = ''
+  endif
+
+  assign desktop_image_bg = section.settings.desktop_image_bg
+  assign mobile_image_bg = section.settings.mobile_image_bg
+-%}
+
+<div class="position-relative {{ background_color }}">
+  {% comment %} background {% endcomment %}
+  {% if desktop_image_bg != blank or mobile_image_bg != blank %}
+    <div class="define-bg-img absolute-center">
+      <div class="img-wrapper h-100">
+        <picture>
+          {% if mobile_image_bg != blank %}
+            <source
+              media="(max-width: 767px)"
+              sizes="(max-width: 767px) 100vw, 767px"
+              srcset="
+                {{ mobile_image_bg | img_url: '375x' }} 1x,
+                {{ mobile_image_bg | img_url: '375x', scale: 2 }} 2x,
+                {{ mobile_image_bg | img_url: '375x', scale: 3 }} 3x
+              "
+            >
+          {% endif %}
+          {% if desktop_image_bg != blank %}
+            <img
+              class="object-fit-cover"
+              srcset="
+                {%- if desktop_image_bg.width >= 1200 -%}{{ desktop_image_bg | img_url: '1200x' }} 1200w,{%- endif -%}
+                {%- if desktop_image_bg.width >= 1920 -%}{{ desktop_image_bg | img_url: '1920x' }} 1920w,{%- endif -%}
+                {%- if desktop_image_bg.width >= 2400 -%}{{ desktop_image_bg | img_url: '2400x' }} 2400w,{%- endif -%}
+                {%- if desktop_image_bg.width >= 3840 -%}{{ desktop_image_bg | img_url: '3840x' }} 3840w,{%- endif -%}
+              "
+              src="{{ desktop_image_bg | img_url: '750x' }}"
+              loading="lazy"
+              alt="{{ desktop_image_bg.alt | escape }}"
+              width="{{ desktop_image_bg.width }}"
+              height="{{ desktop_image_bg.height }}"
+            >
+          {% elsif mobile_image_bg != blank %}
+            <img
+              class="object-fit-cover"
+              srcset="
+                {%- if mobile_image_bg.width >= 414 -%}{{ mobile_image_bg | img_url: '414x' }} 414w,{%- endif -%}
+                {%- if mobile_image_bg.width >= 600 -%}{{ mobile_image_bg | img_url: '600x' }} 600w,{%- endif -%}
+                {%- if mobile_image_bg.width >= 828 -%}{{ mobile_image_bg | img_url: '828x' }} 828w,{%- endif -%}
+                {%- if mobile_image_bg.width >= 1000 -%}{{ mobile_image_bg | img_url: '1000x' }} 1000w,{%- endif -%}
+                {%- if mobile_image_bg.width >= 1200 -%}{{ mobile_image_bg | img_url: '1780x' }} 1200w,{%- endif -%}
+                {%- if mobile_image_bg.width >= 2400 -%}{{ mobile_image_bg | img_url: '2000x' }} 2400w,{%- endif -%}
+              "
+              src="{{ mobile_image_bg | img_url: '750x' }}"
+              loading="lazy"
+              alt="{{ mobile_image_bg.alt | escape }}"
+              width="{{ mobile_image_bg.width }}"
+              height="{{ mobile_image_bg.height }}"
+            >
+          {% endif %}
+        </picture>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="container position-relative">
+    <div class="content-inner d-flex {% if enable_style_of_arrow %}as-scroll-content{% endif %}">
+      <ul class="nav tab-list mx-auto text-nowrap flex-nowrap as-tabs {% if enable_style_of_arrow %}gap-4{% endif %}" data-sectionlist="{{ sectionsList }}">
+        {%- for block in section.blocks -%}
+          {% if adjusted_mark != '' %}
+            <{{ adjusted_mark }} class="adjust-h-tag visually-hidden">{{ block.settings.tab_label }}</{{ adjusted_mark }}>
+          {% endif %}
+          <li class="nav-item d-flex" role="presentation">
+            <a class="as-tab-item tab-item tab-item-{{ section.settings.text_color }} py-2 mx-4 {% if forloop.first %}active ms-0{% elsif forloop.last %}me-0{% endif %} cursor-pointer {{ text_color }} {% if enable_style_of_arrow %}enable-arrow heading-font-family lead{% endif %}" id="cate-tab-{{ forloop.index }}" data-sections="{{ block.settings.section_number }}">
+              {{ block.settings.tab_label }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% if enable_style_of_arrow %}
+      <span
+        class="as-tabs-arrow-prev tabs-arrow position-absolute top-50 translate-middle-y start-0 d-flex d-md-none justify-content-center align-items-center border-end {{ text_color }} cursor-pointer"
+        style="--se-border-color: var({{ arrow_border_color }}) !important;"
+      >
+        {% render 'icon-chevron-left' %}
+      </span>
+      <span
+        class="as-tabs-arrow-next tabs-arrow position-absolute top-50 translate-middle-y end-0 d-flex d-md-none justify-content-center align-items-center border-start {{ text_color }} cursor-pointer"
+        style="--se-border-color: var({{ arrow_border_color }}) !important;"
+      >
+        {% render 'icon-chevron-right' %}
+      </span>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Nav bar",
+  "class": "as-nav-bar nav-bar position-sticky",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_schema",
+      "label": "Background color",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "inverse",
+          "label": "Inverse"
+        },
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "label": "Text color",
+      "options": [
+        {
+          "value": "white",
+          "label": "White"
+        },
+        {
+          "value": "black",
+          "label": "Black"
+        }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_style_of_arrow",
+      "label": "Enable Style of Arrow",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_adjust_h_tag",
+      "label": "Enable adjust H tag",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "adjust_the_h_tag_to",
+      "label": "Adjust the H tag to",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "BACKGROUND IMAGE"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image_bg",
+      "label": "Desktop image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image_bg",
+      "label": "Mobile image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "label": "Tab label",
+          "type": "text",
+          "id": "tab_label"
+        },
+        {
+          "type": "text",
+          "id": "section_number",
+          "label": "Section number",
+          "info": "Please enter 3 if you want to anchor to the third section."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nav bar"
+    }
+  ]
+}
+{% endschema %}
