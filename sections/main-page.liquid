@@ -1,0 +1,39 @@
+{% if section.settings.enable_content %}
+  <style>
+    .default-page-content th {
+      text-align: left;
+      border-width: 1px;
+      padding: 10px;
+    }
+
+    .default-page-content td {
+      text-align: left;
+      border-width: 1px;
+      padding: 10px;
+    }
+  </style>
+<div class="py-12 default-page-content">
+  <div class="container">
+    <h1 class="page-title mb-10">{{ page.title | escape }}</h1>
+    <article class="richtext-description">
+      {{ page.content }}
+    </article>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.main-page.name",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "label": "Enable content",
+      "id": "enable_content",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
